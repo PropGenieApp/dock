@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  app:
+    image: propgenie/docuseal:latest
+    restart: always
+    ports:
+      - 3005:3000
+    volumes:
+      - ./docuseal_data:/data
+    environment:
+      FORCE_SSL: "true"
+      DATABASE_URL: ${PG_URL}
+
